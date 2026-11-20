@@ -4,11 +4,11 @@ The hub for Side B Labs, a hobby software label: one page that lists every proje
 
 **https://sideblabs.com** (once the domain points here; see [The domain](#the-domain))
 
-It's plain HTML, CSS and a little JavaScript, served as it is by GitHub Pages from the `main` branch: no build step. The hub's page loads nothing from other sites (the font, Pixelify Sans, is in `fonts/`, under the SIL Open Font License in `fonts/OFL.txt`), and has no cookies or analytics. (The two project sites each load one thing: The Last Herald loads itch.io's player when its play button is pressed, and ThreadMix asks GitHub for the number of its newest version.) The one thing it keeps in the browser is the tape type you chose (Normal or Chrome: the light or the dark colours), in `localStorage`.
+It's plain HTML, CSS and a little JavaScript, served as it is by GitHub Pages from the `main` branch: no build step. The hub's page loads nothing from other sites until you ask it to (the font, Pixelify Sans, is in `fonts/`, under the SIL Open Font License in `fonts/OFL.txt`), and has no cookies or analytics. Two things do reach another site, each when you press it: a film plays from YouTube (its no-cookie player) in a window on the page, and the contact form is sent through Web3Forms. (The two project sites each load one thing: The Last Herald loads itch.io's player when its play button is pressed, and ThreadMix asks GitHub for the number of its newest version.) The one thing it keeps in the browser is the tape type you chose (Normal or Chrome: the light or the dark colours), in `localStorage`.
 
 - `index.html`: the page. Each project is an `<article class="track">`.
 - `css/site.css`: the look. The colours of both tape types are at the top.
-- `js/site.js`: the tape type switch, the deck at the bottom that says which track is playing, the tape that winds from one reel to the other as you scroll, and Gremlin's moods. The page works without it.
+- `js/site.js`: the tape type switch, the deck at the bottom that says which track is playing, the tape that winds from one reel to the other as you scroll, the window films play in, sending the contact form, and Gremlin's moods. The page works without it: the films are then ordinary links to YouTube.
 - `assets/tracks/`: the tracks' pictures.
 - `404.html`: the page for an address that isn't there.
 - `last-herald/`: The Last Herald's website, with its privacy policy (`last-herald/privacy/`) and the watch faces' (`last-herald/watchfaces/privacy/`). See [Two sites in folders](#two-sites-in-folders).
@@ -58,6 +58,21 @@ Where the pictures come from:
 | The Last Herald on the Amiga | `amiga.png` | the Amiga's own display (`last-herald/assets/amiga/square.png`) |
 | D&D character sheet | none | drawn in the page (the `<svg class="arcane">`). Replace it with a screenshot when there's one to show |
 | Ensemble Reader | `ensemble-*.webp` | the Play screenshots (`bookreader/store/graphics`) |
+
+## Films
+
+Any link on the hub to a film on YouTube (`https://www.youtube.com/watch?v=...`) plays in a window on the page instead of leaving it: nothing else is needed than the link. A picture that is such a link (the Amiga's) gets a play button drawn over it. With Ctrl or a middle click the link opens on YouTube as usual.
+
+## The contact form
+
+There's no email address on the page, so that address collectors don't find one. "Write in" is a form, sent by [Web3Forms](https://web3forms.com), which passes each message on by email. To switch it on:
+
+1. On web3forms.com, enter the address the messages should go to. They mail it an access key.
+2. Put the key in `index.html`, in the form: `<input type="hidden" name="access_key" value="...">`. The key is meant to be public: all it can do is send a message to that address.
+
+While the key is empty, the form is replaced by a line with the address, which `js/site.js` puts together in the browser, so that it still isn't in the page's source. (The address is at the top of the "Write in" part of `js/site.js`, in pieces.) The form has a hidden box named `botcheck` that people don't see and robots tick, which Web3Forms uses to drop their messages.
+
+The Last Herald's footer and the two privacy policies link to the form too, instead of giving an address.
 
 ## Two sites in folders
 

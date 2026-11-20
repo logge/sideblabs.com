@@ -273,7 +273,7 @@
       </article>
 
       <article class="track small a2" id="amiga" data-n="B7" data-title="The Last Herald, Amiga 1200">
-        <a class="art stage crt" href="https://www.youtube.com/watch?v=VHJVSludNbY" rel="noopener" aria-label="Watch the Amiga version on YouTube">
+        <a class="art stage crt" href="https://www.youtube.com/watch?v=VHJVSludNbY" rel="noopener" aria-label="Watch the Amiga version's film">
           <img src="assets/tracks/amiga.png" width="960" height="768" loading="lazy" alt="The Last Herald on an Amiga 1200: the three kids in the town square at night, the panel of what they carry under the picture.">
         </a>
         <header class="track-head">
@@ -288,7 +288,7 @@
           <ul class="tags"><li>AGA</li><li>68020</li><li>WinUAE &amp; FS-UAE</li></ul>
           <p class="links">
             <a class="btn" href="last-herald/#amiga">Get it</a>
-            <a href="https://www.youtube.com/watch?v=VHJVSludNbY" rel="noopener">Watch on YouTube</a>
+            <a href="https://www.youtube.com/watch?v=VHJVSludNbY" rel="noopener">Watch the film</a>
           </p>
         </div>
       </article>
@@ -361,7 +361,7 @@
       <div class="liner-text">
         <p class="big">Side&nbsp;A gets the singles. Side&nbsp;B is where the odd ones go, the ones made because somebody wanted to hear them.</p>
         <p>That's what this is. Side&nbsp;B Labs is one person's hobby: games, apps and gadgets that started as "I wonder if that would work" and kept going. Some are finished and free to download. Some are half-built. All of them are listed here, in the order they came to mind.</p>
-        <p>Most of the tracks have a video on <a href="https://www.youtube.com/@PeterLogarn" rel="noopener">my YouTube channel</a>. And if something here is useful to you, or broken, or you just want to say hello: <a href="mailto:peterlogarn294@gmail.com">write to me</a>.</p>
+        <p>Most of the tracks have a video on <a href="https://www.youtube.com/@PeterLogarn" rel="noopener">my YouTube channel</a>. And if something here is useful to you, or broken, or you just want to say hello: <a href="#contact">write in</a>.</p>
       </div>
       <dl class="credits">
         <div><dt>Written, drawn &amp; produced by</dt><dd>Peter Logarn</dd></div>
@@ -370,6 +370,38 @@
         <div><dt>Instruments</dt><dd>Godot, C and C++, Kotlin, Go, and one 68020</dd></div>
         <div><dt>This site</dt><dd>No cookies, no ads and no tracking</dd></div>
       </dl>
+    </div>
+  </section>
+
+  <section id="contact" class="wrap contact">
+    <header class="section-head">
+      <h2>Write in</h2>
+      <p class="px">Bug reports, requests, or just hello</p>
+    </header>
+    <div class="contact-body">
+      <div class="contact-text">
+        <p class="big">Something broken, something missing, or something you liked?</p>
+        <p>Say which track it's about and leave an address, and I'll write back.</p>
+      </div>
+      <!-- The form is sent by Web3Forms (web3forms.com). The value of access_key is the key they
+           mail you; it's meant to be public. While it's empty, js/site.js shows a line to write to instead. -->
+      <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="">
+        <input type="hidden" name="subject" value="A message from sideblabs.com">
+        <input type="hidden" name="from_name" value="Side B Labs website">
+        <input type="checkbox" name="botcheck" class="sr" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label for="c-name">Your name</label>
+        <input id="c-name" name="name" type="text" autocomplete="name" required>
+        <label for="c-email">Your email, to write back to</label>
+        <input id="c-email" name="email" type="email" autocomplete="email" required>
+        <label for="c-message">Message</label>
+        <textarea id="c-message" name="message" rows="6" required></textarea>
+        <div class="form-foot">
+          <button class="btn" type="submit">Send it</button>
+          <p class="form-status px" role="status" aria-live="polite"></p>
+        </div>
+        <p class="small">The form is sent through Web3Forms, which passes your message on to me by email. Your address is only used to answer you.</p>
+      </form>
     </div>
   </section>
 
@@ -382,7 +414,7 @@
       <a href="https://www.youtube.com/@PeterLogarn" rel="noopener">YouTube</a>
       <a href="https://github.com/logge" rel="noopener">GitHub</a>
       <a href="https://plogarn.itch.io/" rel="noopener">itch.io</a>
-      <a href="mailto:peterlogarn294@gmail.com">Contact</a>
+      <a href="#contact">Contact</a>
     </nav>
     <p class="small">© 2026 Peter Logarn. The type is <a href="fonts/OFL.txt">Pixelify Sans</a>. Names such as Amiga, Wear OS, Google Play and D&amp;D belong to their owners.</p>
   </div>

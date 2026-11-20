@@ -1,5 +1,6 @@
 // Side B Labs. The page works without this: it adds the tape type switch,
-// the deck at the bottom, the tape that winds as you scroll, and Gremlin's moods.
+// the deck at the bottom, the tape that winds as you scroll, the window films play in,
+// sending the contact form from the page, and Gremlin's moods.
 
 (function () {
   'use strict';
@@ -120,6 +121,110 @@
     tracks.forEach(function (t) { seen.observe(t); });
   } else {
     tracks.forEach(function (t) { t.classList.add('in'); });
+  }
+
+  // ---- Films play in a window on the page ----
+  // A link to a film on YouTube still works as a link (and with Ctrl or a middle click, it opens
+  // there). A plain click plays it here instead. Nothing is loaded from YouTube until then.
+
+  var videoBox = null;
+
+  function filmId(link) {
+    try {
+      var u = new URL(link.href);
+      return /(^|\.)youtube\.com$/.test(u.hostname) && u.pathname === '/watch' ? u.searchParams.get('v') : null;
+    } catch (e) { return null; }
+  }
+
+  function buildVideoBox() {
+    var d = document.createElement('dialog');
+    d.className = 'video';
+    d.setAttribute('aria-label', 'Film');
+    d.innerHTML =
+      '<div class="video-bar">' +
+        '<span class="video-title"></span>' +
+        '<a rel="noopener" target="_blank">Open on YouTube</a>' +
+        '<button type="button" aria-label="Close">' +
+          '<svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3l1-1 5 5 5-5 1 1-5 5 5 5-1 1-5-5-5 5-1-1 5-5z"/></svg>' +
+        '</button>' +
+      '</div>' +
+      '<div class="video-frame"></div>';
+    d.querySelector('button').addEventListener('click', function () { d.close(); });
+    d.addEventListener('click', function (e) { if (e.target === d) d.close(); }); // a click outside it
+    d.addEventListener('close', function () { d.querySelector('.video-frame').textContent = ''; }); // stops the film
+    document.body.appendChild(d);
+    return d;
+  }
+
+  function playFilm(id, title, href, accent) {
+    if (!videoBox) videoBox = buildVideoBox();
+    videoBox.querySelector('.video-title').textContent = title;
+    videoBox.querySelector('a').href = href;
+    videoBox.style.setProperty('--video-accent', accent || '');
+    var frame = document.createElement('iframe');
+    frame.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id) + '?autoplay=1&rel=0';
+    frame.title = title;
+    frame.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+    frame.allowFullscreen = true;
+    frame.referrerPolicy = 'strict-origin-when-cross-origin'; // YouTube won't play without knowing the site
+    var holder = videoBox.querySelector('.video-frame');
+    holder.textContent = '';
+    holder.appendChild(frame);
+    videoBox.showModal();
+  }
+
+  if (typeof HTMLDialogElement === 'function') {
+    document.addEventListener('click', function (e) {
+      if (e.defaultPrevented || e.button !== 0 || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
+      var link = e.target.closest && e.target.closest('a[href]');
+      var id = link && filmId(link);
+      if (!id) return;
+      e.preventDefault();
+      var track = link.closest('.track');
+      var title = track ? track.dataset.title : document.title;
+      playFilm(id, title, link.href, track ? getComputedStyle(track).getPropertyValue('--accent') : '');
+    });
+  }
+
+  // ---- Write in ----
+  // With a Web3Forms key in the form (index.html, access_key), the form is sent from the page and
+  // answers here. Without one, the form gives way to a line with the address, put together here
+  // so that it isn't in the page for address collectors to read.
+
+  var form = document.querySelector('.contact-form');
+  if (form) {
+    var status = form.querySelector('.form-status');
+    var send = form.querySelector('button[type="submit"]');
+
+    if (!form.elements.access_key.value) {
+      var at = ['peterlogarn294', ['gmail', 'com'].join('.')].join('@');
+      var line = document.createElement('p');
+      line.className = 'contact-fallback';
+      var a = document.createElement('a');
+      a.href = 'mailto:' + at;
+      a.textContent = at;
+      line.append('Write to ', a);
+      form.replaceWith(line);
+    } else {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        send.disabled = true;
+        status.className = 'form-status px';
+        status.textContent = 'Sending…';
+        fetch(form.action, { method: 'POST', headers: { Accept: 'application/json' }, body: new FormData(form) })
+          .then(function (r) { return r.json().then(function (j) { return r.ok && j.success; }); })
+          .then(function (ok) {
+            if (!ok) throw new Error('refused');
+            form.reset();
+            status.textContent = 'Sent. Thank you!';
+          })
+          .catch(function () {
+            status.className = 'form-status px bad';
+            status.textContent = "That didn't go through. Please try again in a moment.";
+          })
+          .then(function () { send.disabled = false; });
+      });
+    }
   }
 
   // ---- Gremlin ----
