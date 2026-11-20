@@ -71,9 +71,9 @@ def cassette(scale):
     d.text((74 * k, 75 * k), "B", font=heavy(36 * k), fill=LABEL, anchor="mm")
     d.text((116 * k, 71 * k), "SIDE B LABS", font=heavy(33 * k), fill=INK, anchor="ls")
     d.line((116 * k, 84 * k, 546 * k, 84 * k), fill="#a59f92", width=k)
-    d.text((116 * k, 108 * k), "hobby software · 9 tracks", font=pixel(19 * k), fill=INK, anchor="ls")
+    d.text((116 * k, 108 * k), "independent software · 9 tracks", font=pixel(19 * k), fill=INK, anchor="ls")
     d.line((116 * k, 118 * k, 546 * k, 118 * k), fill="#a59f92", width=k)
-    d.text((546 * k, 252 * k), "MADE AFTER HOURS", font=pixel(13 * k), fill=INK, anchor="rs")
+    d.text((546 * k, 252 * k), "WRITTEN & PRODUCED BY P. LOGARN", font=pixel(13 * k), fill=INK, anchor="rs")
     box(150, 128, 300, 100, 12, fill=DARK, outline=INK, width=3 * k)
     for x, r in ((212, 40), (388, 30)):
         dot(x, 178, r, fill="#3b2a1e", outline="#5a4433", width=2 * k)
@@ -95,7 +95,7 @@ def og():
     for i, c in enumerate(STRIPES):
         d.rectangle((0, (540 + 18 * i) * s, w, (558 + 18 * i) * s), fill=c)
     d.rectangle((70 * s, 118 * s, 86 * s, 134 * s), fill=STRIPES[0])
-    d.text((100 * s, 127 * s), "HOBBY SOFTWARE LABEL", font=pixel(28 * s), fill="#51483e", anchor="lm")
+    d.text((100 * s, 127 * s), "INDEPENDENT SOFTWARE STUDIO", font=pixel(28 * s), fill="#51483e", anchor="lm")
     d.text((66 * s, 250 * s), "FLIP THE", font=heavy(124 * s), fill=INK, anchor="ls")
     d.text((66 * s, 362 * s), "TAPE.", font=heavy(124 * s), fill=INK, anchor="ls")
     d.text((70 * s, 440 * s), "sideblabs.com", font=pixel(40 * s), fill=INK, anchor="ls")
