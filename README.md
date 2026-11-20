@@ -2,7 +2,7 @@
 
 The hub for Side B Labs, a hobby software label: one page that lists every project as a track on side B of a tape, and the websites of two of them, The Last Herald and ThreadMix Auto DJ, in folders of their own.
 
-**https://sideblabs.com** (once the domain points here; see [The domain](#the-domain))
+**https://sideblabs.com**
 
 It's plain HTML, CSS and a little JavaScript, served as it is by GitHub Pages from the `main` branch: no build step. The hub's page loads nothing from other sites until you ask it to (the font, Pixelify Sans, is in `fonts/`, under the SIL Open Font License in `fonts/OFL.txt`), and has no cookies or analytics. Two things do reach another site, each when you press it: a film plays from YouTube (its no-cookie player) in a window on the page, and the contact form is sent through Web3Forms. (The two project sites each load one thing: The Last Herald loads itch.io's player when its play button is pressed, and ThreadMix asks GitHub for the number of its newest version.) The one thing it keeps in the browser is the tape type you chose (Normal or Chrome: the light or the dark colours), in `localStorage`.
 
@@ -91,25 +91,20 @@ On GitHub: **Settings > Pages > Build and deployment > Deploy from a branch**, `
 
 ## The domain
 
-Until the domain is set up the site is at `https://logge.github.io/<repository name>/`. Everything on the page uses relative addresses, so it works there and on the domain alike. (The 404 page's link home and the link-preview picture's address assume the domain.)
+The site is at **https://sideblabs.com**. The `CNAME` file in this repository is what tells GitHub Pages so (GitHub wrote it, from **Settings > Pages > Custom domain**); the old address, `logge.github.io/sideblabs.com`, sends visitors on to the domain. Everything on the pages uses relative addresses; only the link-preview pictures' addresses and the 404 page's link home name the domain.
 
-To put it on sideblabs.com:
+The DNS records at the domain's registrar, should they ever need to be set again:
 
-1. At the domain's registrar, in its DNS settings, add these records:
+| Type | Name | Value |
+|---|---|---|
+| A | `@` | `185.199.108.153` |
+| A | `@` | `185.199.109.153` |
+| A | `@` | `185.199.110.153` |
+| A | `@` | `185.199.111.153` |
+| AAAA | `@` | `2606:50c0:8000::153` |
+| AAAA | `@` | `2606:50c0:8001::153` |
+| AAAA | `@` | `2606:50c0:8002::153` |
+| AAAA | `@` | `2606:50c0:8003::153` |
+| CNAME | `www` | `logge.github.io` |
 
-   | Type | Name | Value |
-   |---|---|---|
-   | A | `@` | `185.199.108.153` |
-   | A | `@` | `185.199.109.153` |
-   | A | `@` | `185.199.110.153` |
-   | A | `@` | `185.199.111.153` |
-   | AAAA | `@` | `2606:50c0:8000::153` |
-   | AAAA | `@` | `2606:50c0:8001::153` |
-   | AAAA | `@` | `2606:50c0:8002::153` |
-   | AAAA | `@` | `2606:50c0:8003::153` |
-   | CNAME | `www` | `logge.github.io` |
-
-2. On GitHub: **Settings > Pages > Custom domain**, enter `sideblabs.com` and save. GitHub adds a file named `CNAME` to the repository (pull it afterwards) and checks the DNS; that can take up to a day.
-3. When the check has passed, tick **Enforce HTTPS**.
-
-Don't add the `CNAME` file before the DNS is in place: with it, the `logge.github.io` address redirects to the domain, which leads nowhere until then.
+**Enforce HTTPS**, under the custom domain in Settings > Pages, sends anyone who arrives by `http://` on to `https://`.
