@@ -1,16 +1,18 @@
 # Side B Labs: the website
 
-The hub for Side B Labs, a hobby software label: one page that lists every project as a track on side B of a tape.
+The hub for Side B Labs, a hobby software label: one page that lists every project as a track on side B of a tape, and the websites of two of them, The Last Herald and ThreadMix Auto DJ, in folders of their own.
 
 **https://sideblabs.com** (once the domain points here; see [The domain](#the-domain))
 
-It's plain HTML, CSS and a little JavaScript, served as it is by GitHub Pages from the `main` branch: no build step. It loads nothing from other sites (the font, Pixelify Sans, is in `fonts/`, under the SIL Open Font License in `fonts/OFL.txt`), and has no cookies or analytics. The one thing it keeps in the browser is the tape type you chose (Normal or Chrome: the light or the dark colours), in `localStorage`.
+It's plain HTML, CSS and a little JavaScript, served as it is by GitHub Pages from the `main` branch: no build step. The hub's page loads nothing from other sites (the font, Pixelify Sans, is in `fonts/`, under the SIL Open Font License in `fonts/OFL.txt`), and has no cookies or analytics. (The two project sites each load one thing: The Last Herald loads itch.io's player when its play button is pressed, and ThreadMix asks GitHub for the number of its newest version.) The one thing it keeps in the browser is the tape type you chose (Normal or Chrome: the light or the dark colours), in `localStorage`.
 
 - `index.html`: the page. Each project is an `<article class="track">`.
 - `css/site.css`: the look. The colours of both tape types are at the top.
 - `js/site.js`: the tape type switch, the deck at the bottom that says which track is playing, the tape that winds from one reel to the other as you scroll, and Gremlin's moods. The page works without it.
 - `assets/tracks/`: the tracks' pictures.
 - `404.html`: the page for an address that isn't there.
+- `last-herald/`: The Last Herald's website, with its privacy policy (`last-herald/privacy/`) and the watch faces' (`last-herald/watchfaces/privacy/`). See [Two sites in folders](#two-sites-in-folders).
+- `threadmix/`: ThreadMix Auto DJ's website.
 - `tools/make_images.py`: draws the icons and the link-preview picture (`assets/og.png`). Run it again if the look changes: `python tools/make_images.py` (it needs Pillow).
 
 ## To see it on your own computer
@@ -47,7 +49,7 @@ Where the pictures come from:
 
 | Track | Picture | From |
 |---|---|---|
-| The Last Herald | `last-herald.png` | the game's store screenshots (`last-herald/assets/screens/1-title.png`) |
+| The Last Herald | `last-herald.png` | the game's store screenshots (`last-herald/assets/screens/1-title.png`), at half the size |
 | The Last Herald 2 | `last-herald-2.webp` | `last-herald-2/shots/title.png` |
 | Armada Zero: Firestorm | `armada-zero.png` | a capture of the hangar screen (`spaceshooter/test_output/m4_art`) |
 | Robin & Coco | `robin-coco.png` | the Play feature graphic (`watchfaces/store/roomie`) |
@@ -56,6 +58,17 @@ Where the pictures come from:
 | The Last Herald on the Amiga | `amiga.png` | the Amiga's own display (`last-herald/assets/amiga/square.png`) |
 | D&D character sheet | none | drawn in the page (the `<svg class="arcane">`). Replace it with a screenshot when there's one to show |
 | Ensemble Reader | `ensemble-*.webp` | the Play screenshots (`bookreader/store/graphics`) |
+
+## Two sites in folders
+
+`last-herald/` and `threadmix/` are the websites of those two projects, copied from their own repositories (`logge/last-herald` and `logge/threadmix`) so that everything is under one domain: `sideblabs.com/last-herald/` and `sideblabs.com/threadmix/`. Each has a README of its own with how it works. What was changed in the copies: the addresses for link previews (`og:image`, `og:url`) and a `canonical` link, which name sideblabs.com, and a link back to Side B Labs in each footer.
+
+The two old repositories are still there and still published, because things point at them:
+
+- Google Play has The Last Herald's privacy policy as `https://logge.github.io/last-herald/privacy/`, and the watch faces' as `https://logge.github.io/last-herald/watchfaces/privacy/`. The same pages are now at `https://sideblabs.com/last-herald/privacy/` and `https://sideblabs.com/last-herald/watchfaces/privacy/`; once the domain is up, the Play Console can be given those instead.
+- ThreadMix's installers are the `threadmix` repository's releases, and the Amiga version of The Last Herald is a release of the `last-herald` repository. The download buttons point there, and that doesn't need to change.
+
+For as long as both copies of a site are up, a change to one has to be made in the other too. Once the domain is up, the old ones could be replaced by a page that sends visitors on to the new address.
 
 ## Publishing
 

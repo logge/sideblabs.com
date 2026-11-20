@@ -324,7 +324,7 @@ a.art:hover { transform: translate(-3px, -3px); box-shadow: 12px 12px 0 var(--ac
 
 .foot { background: var(--paper-2); border-top: 2px solid var(--ink); padding-block: 36px 110px; }
 .foot .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; }
-.foot nav { display: flex; gap: 22px; margin-left: auto; font-family: var(--pixel); }
+.foot nav { display: flex; flex-wrap: wrap; gap: 6px 22px; margin-left: auto; font-family: var(--pixel); }
 .foot .small { flex-basis: 100%; font-size: .88rem; color: var(--ink-2); }
 
 /* ---- The deck: the bar that says which track is playing ---- */
@@ -374,7 +374,7 @@ a.art:hover { transform: translate(-3px, -3px); box-shadow: 12px 12px 0 var(--ac
 @media (max-width: 720px) {
   body { font-size: 16px; }
   .top { flex-wrap: wrap; gap: 14px 20px; }
-  .top nav { order: 3; flex-basis: 100%; margin: 0; gap: 20px; }
+  .top nav { order: 3; flex-basis: 100%; margin: 0; flex-wrap: wrap; gap: 6px 18px; }
   .tape-type { margin-left: auto; }
   .track-head { flex-wrap: wrap; }
   .track-head h3 { flex: 1 1 60%; }
