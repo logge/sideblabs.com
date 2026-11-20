@@ -65,12 +65,11 @@ Any link on the hub to a film on YouTube (`https://www.youtube.com/watch?v=...`)
 
 ## The contact form
 
-There's no email address on the page, so that address collectors don't find one. "Write in" is a form, sent by [Web3Forms](https://web3forms.com), which passes each message on by email. To switch it on:
+There's no email address on the page, or anywhere in these files, so that address collectors don't find one. "Write in" is a form, sent by [Web3Forms](https://web3forms.com), which passes each message on by email to the address its access key belongs to.
 
-1. On web3forms.com, enter the address the messages should go to. They mail it an access key.
-2. Put the key in `index.html`, in the form: `<input type="hidden" name="access_key" value="...">`. The key is meant to be public: all it can do is send a message to that address.
+The key is in `index.html`, in the form: `<input type="hidden" name="access_key" value="...">`. It's meant to be public: all it can do is send a message to that address. For the messages to go somewhere else, enter the new address on web3forms.com and put the key they mail you there instead.
 
-While the key is empty, the form is replaced by a line with the address, which `js/site.js` puts together in the browser, so that it still isn't in the page's source. (The address is at the top of the "Write in" part of `js/site.js`, in pieces.) The form has a hidden box named `botcheck` that people don't see and robots tick, which Web3Forms uses to drop their messages.
+The form has a hidden box named `botcheck` that people don't see and robots tick, which Web3Forms uses to drop their messages. Should spam get through all the same, Web3Forms can add a captcha to the form (their documentation says how).
 
 The Last Herald's footer and the two privacy policies link to the form too, instead of giving an address.
 

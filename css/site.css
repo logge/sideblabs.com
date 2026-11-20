@@ -341,8 +341,7 @@ a.art:hover { transform: translate(-3px, -3px); box-shadow: 12px 12px 0 var(--ac
 .form-foot .btn:disabled { opacity: .55; cursor: default; transform: none; }
 .form-status { font-size: 1.02rem; }
 .form-status.bad { color: var(--s1); }
-.contact-form .small, .contact-fallback .small { margin-top: 10px; font-size: .88rem; color: var(--ink-2); }
-.contact-fallback { font-family: var(--pixel); font-size: 1.1rem; }
+.contact-form .small { margin-top: 10px; font-size: .88rem; color: var(--ink-2); }
 @media (max-width: 900px) { .contact-body { grid-template-columns: 1fr; } }
 
 /* ---- The video window ---- */

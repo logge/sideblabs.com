@@ -187,44 +187,32 @@
   }
 
   // ---- Write in ----
-  // With a Web3Forms key in the form (index.html, access_key), the form is sent from the page and
-  // answers here. Without one, the form gives way to a line with the address, put together here
-  // so that it isn't in the page for address collectors to read.
+  // The form is sent from the page (through Web3Forms, whose key is in the form in index.html)
+  // and answers here. Without this script it's sent the ordinary way, and Web3Forms answers.
 
   var form = document.querySelector('.contact-form');
   if (form) {
     var status = form.querySelector('.form-status');
     var send = form.querySelector('button[type="submit"]');
 
-    if (!form.elements.access_key.value) {
-      var at = ['peterlogarn294', ['gmail', 'com'].join('.')].join('@');
-      var line = document.createElement('p');
-      line.className = 'contact-fallback';
-      var a = document.createElement('a');
-      a.href = 'mailto:' + at;
-      a.textContent = at;
-      line.append('Write to ', a);
-      form.replaceWith(line);
-    } else {
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        send.disabled = true;
-        status.className = 'form-status px';
-        status.textContent = 'Sending…';
-        fetch(form.action, { method: 'POST', headers: { Accept: 'application/json' }, body: new FormData(form) })
-          .then(function (r) { return r.json().then(function (j) { return r.ok && j.success; }); })
-          .then(function (ok) {
-            if (!ok) throw new Error('refused');
-            form.reset();
-            status.textContent = 'Sent. Thank you!';
-          })
-          .catch(function () {
-            status.className = 'form-status px bad';
-            status.textContent = "That didn't go through. Please try again in a moment.";
-          })
-          .then(function () { send.disabled = false; });
-      });
-    }
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      send.disabled = true;
+      status.className = 'form-status px';
+      status.textContent = 'Sending…';
+      fetch(form.action, { method: 'POST', headers: { Accept: 'application/json' }, body: new FormData(form) })
+        .then(function (r) { return r.json().then(function (j) { return r.ok && j.success; }); })
+        .then(function (ok) {
+          if (!ok) throw new Error('refused');
+          form.reset();
+          status.textContent = 'Sent. Thank you!';
+        })
+        .catch(function () {
+          status.className = 'form-status px bad';
+          status.textContent = "That didn't go through. Please try again in a moment.";
+        })
+        .then(function () { send.disabled = false; });
+    });
   }
 
   // ---- Gremlin ----
