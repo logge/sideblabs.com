@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Side B Labs</title>
+  <meta name="description" content="Side B Labs is Peter Logarn's hobby software label: pixel art adventure games, a co-op space shooter, a DJ that mixes itself, watch faces, and a critter on a microcontroller.">
+  <meta name="theme-color" content="#efe6d3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#14120f" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
+  <link rel="apple-touch-icon" href="assets/icon-180.png">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Side B Labs">
+  <meta property="og:description" content="Hobby software from the other side of the tape: pixel art adventures, a co-op space shooter, a DJ that mixes itself, and more.">
+  <meta property="og:image" content="https://sideblabs.com/assets/og.png">
+  <meta property="og:url" content="https://sideblabs.com/">
+  <meta name="twitter:card" content="summary_large_image">
+  <script>
+    // The tape type (colour theme) is set before the page is drawn, so it never flashes.
+    try {
+      var t = localStorage.getItem('tape');
+      if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+    } catch (e) {}
+    document.documentElement.classList.add('js');
+  </script>
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+
+<a class="skip" href="#tracklist">Skip to the tracklist</a>
+
+<header class="top wrap">
+  <a class="wordmark" href="./" aria-label="Side B Labs, home">Side <span class="b" aria-hidden="true">B</span><span class="sr">B</span> Labs</a>
+  <nav aria-label="Sections">
+    <a href="#tracklist">Tracklist</a>
+    <a href="#liner-notes">Liner notes</a>
+    <a href="https://github.com/logge" rel="noopener">GitHub</a>
+  </nav>
+  <div class="tape-type" role="group" aria-label="Tape type (colour theme)">
+    <button type="button" data-tape="light" aria-pressed="false">Normal</button>
+    <button type="button" data-tape="dark" aria-pressed="false">Chrome</button>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero wrap">
+    <div class="hero-text">
+      <p class="eyebrow">Hobby software label</p>
+      <h1>Flip the tape.</h1>
+      <p class="lede">Side&nbsp;B Labs is where Peter Logarn's side projects live. Pixel art adventures, a co-op space shooter, a DJ that mixes itself, a critter on a microcontroller: nine tracks so far, all made for the fun of it.</p>
+      <p class="hero-actions">
+        <a class="btn" href="#tracklist">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M4 2h2v1h2v1h2v1h2v1h2v4h-2v1h-2v1H8v1H6v1H4z"/></svg>
+          Play the tracklist
+        </a>
+        <a class="quiet" href="#liner-notes">Read the liner notes</a>
+      </p>
+    </div>
+
+    <div class="hero-tape">
+      <svg class="cassette" viewBox="0 0 600 384" role="img" aria-label="A cassette tape labelled Side B Labs, its reels turning.">
+        <defs>
+          <clipPath id="tape-window"><rect x="150" y="128" width="300" height="100" rx="12"/></clipPath>
+        </defs>
+        <rect class="c-shell" x="3" y="3" width="594" height="378" rx="20"/>
+        <rect class="c-label" x="30" y="26" width="540" height="248" rx="10"/>
+
+        <g class="c-stripes">
+          <rect x="30" y="140" width="540" height="15" fill="#e8452c"/>
+          <rect x="30" y="155" width="540" height="15" fill="#f08a1c"/>
+          <rect x="30" y="170" width="540" height="15" fill="#f2c230"/>
+          <rect x="30" y="185" width="540" height="15" fill="#2a9d8f"/>
+          <rect x="30" y="200" width="540" height="15" fill="#2b4a8c"/>
+        </g>
+
+        <circle class="c-ink" cx="74" cy="76" r="25"/>
+        <text class="c-side" x="74" y="89" text-anchor="middle">B</text>
+        <text class="c-title" x="116" y="71">SIDE B LABS</text>
+        <line class="c-rule" x1="116" y1="84" x2="546" y2="84"/>
+        <text class="c-hand" x="116" y="108">hobby software · 9 tracks</text>
+        <line class="c-rule" x1="116" y1="118" x2="546" y2="118"/>
+        <text class="c-small" x="546" y="66" text-anchor="end">TYPE II · C-90</text>
+        <text class="c-small" x="52" y="252">NR</text>
+        <rect class="c-box" x="78" y="241" width="12" height="12"/>
+        <text class="c-small" x="546" y="252" text-anchor="end">MADE AFTER HOURS</text>
+
+        <rect class="c-window" x="150" y="128" width="300" height="100" rx="12"/>
+        <g clip-path="url(#tape-window)">
+          <circle class="c-pack c-pack-l" cx="212" cy="178" r="48"/>
+          <circle class="c-pack c-pack-r" cx="388" cy="178" r="48"/>
+          <g class="c-hub c-hub-l">
+            <circle cx="212" cy="178" r="19"/>
+            <path d="M212 161v8M212 187v8M197.300 169.500l6.900 4M219.800 182.500l6.900 4M197.300 186.500l6.900-4M219.800 173.500l6.900-4"/>
+            <circle class="c-hole" cx="212" cy="178" r="7"/>
+          </g>
+          <g class="c-hub c-hub-r">
+            <circle cx="388" cy="178" r="19"/>
+            <path d="M388 161v8M388 187v8M373.300 169.500l6.900 4M395.800 182.500l6.900 4M373.300 186.500l6.900-4M395.800 173.500l6.900-4"/>
+            <circle class="c-hole" cx="388" cy="178" r="7"/>
+          </g>
+        </g>
+        <rect class="c-window-rim" x="150" y="128" width="300" height="100" rx="12"/>
+
+        <path class="c-foot" d="M118 381 144 294h312l26 87z"/>
+        <circle class="c-hole" cx="226" cy="340" r="11"/>
+        <circle class="c-hole" cx="374" cy="340" r="11"/>
+        <rect class="c-hole" x="182" y="352" width="12" height="12" rx="2"/>
+        <rect class="c-hole" x="406" y="352" width="12" height="12" rx="2"/>
+        <rect class="c-hole" x="284" y="350" width="32" height="14" rx="3"/>
+
+        <g class="c-screw">
+          <circle cx="22" cy="22" r="6"/><path d="M18 22h8"/>
+          <circle cx="578" cy="22" r="6"/><path d="M574 22h8"/>
+          <circle cx="22" cy="362" r="6"/><path d="M18 362h8"/>
+          <circle cx="578" cy="362" r="6"/><path d="M574 362h8"/>
+          <circle cx="300" cy="312" r="6"/><path d="M296 312h8"/>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <div class="stripes" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+
+  <section id="tracklist" class="wrap tracklist">
+    <header class="section-head">
+      <h2>Tracklist</h2>
+      <p class="px">Side B · 9 tracks · Running time: every spare evening</p>
+    </header>
+
+    <article class="track a1" id="the-last-herald" data-n="B1" data-title="The Last Herald">
+      <header class="track-head">
+        <span class="num">B1</span>
+        <h3>The Last Herald</h3>
+        <span class="leader" aria-hidden="true"></span>
+        <span class="status live">Released</span>
+      </header>
+      <div class="track-body">
+        <a class="art" href="https://logge.github.io/last-herald/" rel="noopener">
+          <img src="assets/tracks/last-herald.png" width="1440" height="810" alt="The Last Herald's title screen: three kids on a hill at dusk, looking down at a small town and the glowing hill across the valley.">
+        </a>
+        <div class="notes">
+          <p class="kind">Point-and-click adventure game</p>
+          <p>October 1987. Three kids from a Swedish sawmill town find a starship under a hill. It came down forty thousand years ago with a warning that was never delivered, and it hasn't given up.</p>
+          <p>Four acts in pixel art, every line spoken, in the spirit of the LucasArts classics. Free, with no ads and nothing to buy.</p>
+          <ul class="tags"><li>Android</li><li>Browser</li><li>Amiga 1200</li><li>Free</li></ul>
+          <p class="links">
+            <a class="btn" href="https://logge.github.io/last-herald/" rel="noopener">Visit the site</a>
+            <a href="https://play.google.com/store/apps/details?id=io.github.logge.lastherald" rel="noopener">Google Play</a>
+            <a href="https://plogarn.itch.io/the-last-herald" rel="noopener">Play on itch.io</a>
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <article class="track a2" id="the-last-herald-2" data-n="B2" data-title="The Last Herald 2">
+      <header class="track-head">
+        <span class="num">B2</span>
+        <h3>The Last Herald 2</h3>
+        <span class="leader" aria-hidden="true"></span>
+        <span class="status wip">In production</span>
+      </header>
+      <div class="track-body">
+        <div class="art">
+          <img src="assets/tracks/last-herald-2.webp" width="1280" height="720" loading="lazy" alt="The Last Herald 2's title screen: the three kids, older now, on a ledge at dusk above the town, a starship glowing in a cave under the northern lights.">
+        </div>
+        <div class="notes">
+          <p class="kind">Adventure game, the sequel</p>
+          <p>Two years on. Sofia, Danny and Benjamin are teenagers now, with a starship for a home and a boombox on the bridge. They have got very good at this. They are also always too late.</p>
+          <p>A bigger adventure on a new engine, with new art and the same three kids. Act one is being built now.</p>
+          <ul class="tags"><li>Godot</li><li>Pixel art</li><li>English &amp; Swedish</li></ul>
+        </div>
+      </div>
+    </article>
+
+    <article class="track a3" id="armada-zero" data-n="B3" data-title="Armada Zero: Firestorm">
+      <header class="track-head">
+        <span class="num">B3</span>
+        <h3>Armada Zero: Firestorm</h3>
+        <span class="leader" aria-hidden="true"></span>
+        <span class="status wip">In development</span>
+      </header>
+      <div class="track-body">
+        <div class="art">
+          <img src="assets/tracks/armada-zero.png" width="1280" height="720" loading="lazy" alt="Armada Zero: Firestorm's hangar screen: the title, Commander Vega's portrait, her ship the Lancer, and the menu.">
+        </div>
+        <div class="notes">
+          <p class="kind">Co-op pixel art space shooter</p>
+          <p>The Armada was built to end a war that nobody remembers. It slept for a thousand years. Now it is waking, system by system, and what is left to stop it is one strike wing flying ships that carry too many guns.</p>
+          <p>A roguelite bullet hell for one to four pilots: six weapons on one reactor, enemy fire that gets thicker every loop, and your friends on the same wifi.</p>
+          <ul class="tags"><li>Godot</li><li>LAN co-op</li><li>PC &amp; Android</li></ul>
+        </div>
+      </div>
+    </article>
+
+    <article class="track a4" id="robin-and-coco" data-n="B4" data-title="Robin &amp; Coco">
+      <header class="track-head">
+        <span class="num">B4</span>
+        <h3>Robin &amp; Coco</h3>
+        <span class="leader" aria-hidden="true"></span>
+        <span class="status soon">Coming to Google Play</span>
+      </header>
+      <div class="track-body">
+        <div class="art">
+          <img src="assets/tracks/robin-coco.png" width="1024" height="500" loading="lazy" alt="Robin and Coco: Castaway Days. Robin on her desert island in pixel art, as a watch face on a watch and as a live wallpaper on a phone.">
+        </div>
+        <div class="notes">
+          <p class="kind">Watch face &amp; live phone wallpaper</p>
+          <p>Robin was shipwrecked on a tiny island, in pixel art. Her only company is Coco, a coconut with a face, and a very good listener. Every day she has a plan to get off the island, and every evening it goes wrong.</p>
+          <p>She lives on your watch and on your phone, under the real sky and your weather. She works out when your heart rate is up, dances at your step goal, and sleeps after your bedtime.</p>
+          <ul class="tags"><li>Wear OS</li><li>Android</li><li>31 daily stories</li></ul>
+        </div>
+      </div>
+    </article>
+
+    <article class="track a5" id="threadmix" data-n="B5" data-title="ThreadMix Auto DJ">
+      <header class="track-head">
+        <span class="num">B5</span>
+        <h3>ThreadMix Auto DJ</h3>
+        <span class="leader" aria-hidden="true"></span>
+        <span class="status live">Released</span>
+      </header>
+      <div class="track-body">
+        <a class="art" href="https://logge.github.io/threadmix" rel="noopener">
+          <img src="assets/tracks/threadmix.webp" width="1280" height="720" loading="lazy" alt="ThreadMix's turntable visualizer: a glowing record with ThreadMix on its label, a tonearm and a level meter.">
+        </a>
+        <div class="notes">
+          <p class="kind">An AI DJ for your own music</p>
+          <p>A DJ that runs itself. Point it at your music and it listens to every track, then plays one continuous, beatmatched mix: key-aware blends, bass swaps, a voice on the mic and a light show.</p>
+          <p>Tell it "keep it deep" or "take it to peak time" and it plans the night. Everything runs on your own computer.</p>
+          <ul class="tags"><li>Windows</li><li>Linux</li><li>Mac</li><li>Free</li></ul>
+          <p class="links">
+            <a class="btn" href="https://logge.github.io/threadmix" rel="noopener">Visit the site</a>
+            <a href="https://github.com/logge/threadmix/releases" rel="noopener">Downloads</a>
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <div class="b-grid">
+
+      <article class="track small a1" id="esp32" data-n="B6" data-title="ESP32 projects">
+        <div class="art stage gremlin-stage" role="img" aria-label="Gremlin, a green pixel art critter, changing mood on a small screen.">
+          <div class="gremlin-screen">
+            <span class="g-head px">claude · vscode · ollama</span>
+            <span class="gremlin" aria-hidden="true"></span>
+            <span class="g-mood px">happy</span>
+            <span class="g-why px">tests passed</span>
+          </div>
+        </div>
+        <header class="track-head">
+          <span class="num">B6</span>
+          <h3>ESP32 projects</h3>
+          <span class="leader" aria-hidden="true"></span>
+          <span class="status wip">On the bench</span>
+        </header>
+        <div class="notes">
+          <p class="kind">Small screens, small chips</p>
+          <p>The first is Gremlin: a pixel art desk critter on an ESP32 with a 1.47-inch screen, that shows what your computer is up to. Happy when the tests pass, sad when the build fails, headphones on when music plays, and a ghost when someone force-pushes.</p>
+          <ul class="tags"><li>ESP32-C6</li><li>ESP-IDF</li><li>Bluetooth</li></ul>
+        </div>
+      </article>
+
+      <article class="track small a2" id="amiga" data-n="B7" data-title="The Last Herald, Amiga 1200">
+        <a class="art stage crt" href="https://www.youtube.com/watch?v=VHJVSludNbY" rel="noopener" aria-label="Watch the Amiga version on YouTube">
+          <img src="assets/tracks/amiga.png" width="960" height="768" loading="lazy" alt="The Last Herald on an Amiga 1200: the three kids in the town square at night, the panel of what they carry under the picture.">
+        </a>
+        <header class="track-head">
+          <span class="num">B7</span>
+          <h3>The Last Herald on the Amiga</h3>
+          <span class="leader" aria-hidden="true"></span>
+          <span class="status live">Released</span>
+        </header>
+        <div class="notes">
+          <p class="kind">Commodore Amiga 1200 port</p>
+          <p>The whole game on a 68020 at 14 MHz: all four acts in 256 colours at a steady 25 frames a second, every frame checked against the original, pixel for pixel. For a real A1200 with 8&nbsp;MB of fast memory, or an emulator.</p>
+          <ul class="tags"><li>AGA</li><li>68020</li><li>WinUAE &amp; FS-UAE</li></ul>
+          <p class="links">
+            <a class="btn" href="https://logge.github.io/last-herald/#amiga" rel="noopener">Get it</a>
+            <a href="https://www.youtube.com/watch?v=VHJVSludNbY" rel="noopener">Watch on YouTube</a>
+          </p>
+        </div>
+      </article>
+
+      <article class="track small a4" id="character-sheet" data-n="B8" data-title="D&amp;D character sheet">
+        <div class="art stage">
+          <svg class="arcane" viewBox="0 0 640 400" role="img" aria-label="A glowing twenty-sided die showing a 20, with hit points, armour class and initiative around it.">
+            <defs>
+              <linearGradient id="arc" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b993ff"/><stop offset="1" stop-color="#5ee6f5"/></linearGradient>
+              <radialGradient id="arc-glow"><stop offset="0" stop-color="#7c5cff" stop-opacity=".55"/><stop offset="1" stop-color="#7c5cff" stop-opacity="0"/></radialGradient>
+            </defs>
+            <rect width="640" height="400" fill="#14112a"/>
+            <circle cx="320" cy="200" r="210" fill="url(#arc-glow)"/>
+            <g fill="none" stroke="url(#arc)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+              <path d="M320 80 423.900 140V260L320 320 216.100 260V140Z"/>
+              <path d="M320 136 375.400 232H264.600Z" fill="#1d1840"/>
+              <path d="M320 136V80M320 136 423.900 140M320 136 216.100 140M375.400 232 423.900 140M375.400 232 423.900 260M375.400 232 320 320M264.600 232 216.100 140M264.600 232 216.100 260M264.600 232 320 320"/>
+            </g>
+            <text x="320" y="216" text-anchor="middle" class="arc-n">20</text>
+            <g class="arc-chip">
+              <rect x="44" y="96" width="118" height="64" rx="12"/><text x="62" y="122" class="arc-k">HIT POINTS</text><text x="62" y="148" class="arc-v">27 / 31</text>
+              <rect x="44" y="240" width="118" height="64" rx="12"/><text x="62" y="266" class="arc-k">ARMOUR</text><text x="62" y="292" class="arc-v">16</text>
+              <rect x="478" y="96" width="118" height="64" rx="12"/><text x="496" y="122" class="arc-k">INITIATIVE</text><text x="496" y="148" class="arc-v">+3</text>
+              <rect x="478" y="240" width="118" height="64" rx="12"/><text x="496" y="266" class="arc-k">SPELL DC</text><text x="496" y="292" class="arc-v">14</text>
+            </g>
+          </svg>
+        </div>
+        <header class="track-head">
+          <span class="num">B8</span>
+          <h3>D&amp;D character sheet</h3>
+          <span class="leader" aria-hidden="true"></span>
+          <span class="status wip">In development</span>
+        </header>
+        <div class="notes">
+          <p class="kind">A character sheet for the table</p>
+          <p>Made to be glanced at in a dim room, not filled in like a form: one tab for the fight, one for your scores, gear, spells and traits. Your character lives on your phone. When the DM opens a session it appears on every phone on the wifi, and the table stays in step.</p>
+          <ul class="tags"><li>Android</li><li>Kotlin</li><li>Works offline</li></ul>
+        </div>
+      </article>
+
+      <article class="track small a5" id="ensemble-reader" data-n="B9" data-title="Ensemble Reader">
+        <div class="art stage phones">
+          <img src="assets/tracks/ensemble-player.webp" width="540" height="1080" loading="lazy" alt="Ensemble Reader's player, with the cover of Pride and Prejudice.">
+          <img src="assets/tracks/ensemble-read-along.webp" width="540" height="1080" loading="lazy" alt="Ensemble Reader's read-along view: the sentence being read is highlighted, each speaker in their own colour.">
+        </div>
+        <header class="track-head">
+          <span class="num">B9</span>
+          <h3>Ensemble Reader</h3>
+          <span class="leader" aria-hidden="true"></span>
+          <span class="status soon">Coming to Google Play</span>
+        </header>
+        <div class="notes">
+          <p class="kind">Audiobook reader for phone &amp; watch</p>
+          <p>Full-cast audiobooks, read along with the text: the sentence being read is highlighted, and every character speaks in their own voice. On a Wear OS watch it plays without the phone, and when your wrist has been still a while, it fades the book out and remembers where you dozed off.</p>
+          <ul class="tags"><li>Android</li><li>Wear OS</li><li>No account</li></ul>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <div class="stripes" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+
+  <section id="liner-notes" class="wrap liner">
+    <header class="section-head">
+      <h2>Liner notes</h2>
+      <p class="px">Read these while the tape rewinds</p>
+    </header>
+    <div class="liner-body">
+      <div class="liner-text">
+        <p class="big">Side&nbsp;A gets the singles. Side&nbsp;B is where the odd ones go, the ones made because somebody wanted to hear them.</p>
+        <p>That's what this is. Side&nbsp;B Labs is one person's hobby: games, apps and gadgets that started as "I wonder if that would work" and kept going. Some are finished and free to download. Some are half-built. All of them are listed here, in the order they came to mind.</p>
+        <p>If something here is useful to you, or broken, or you just want to say hello: <a href="mailto:peterlogarn294@gmail.com">write to me</a>.</p>
+      </div>
+      <dl class="credits">
+        <div><dt>Written, drawn &amp; produced by</dt><dd>Peter Logarn</dd></div>
+        <div><dt>Label</dt><dd>Side B Labs</dd></div>
+        <div><dt>Recorded</dt><dd>In spare time, with the door closed</dd></div>
+        <div><dt>Instruments</dt><dd>Godot, C and C++, Kotlin, Go, and one 68020</dd></div>
+        <div><dt>This site</dt><dd>No cookies, no tracking, and nothing loaded from anywhere else</dd></div>
+      </dl>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <a class="wordmark" href="./" aria-label="Side B Labs, home">Side <span class="b" aria-hidden="true">B</span><span class="sr">B</span> Labs</a>
+    <nav aria-label="Elsewhere">
+      <a href="https://github.com/logge" rel="noopener">GitHub</a>
+      <a href="https://plogarn.itch.io/" rel="noopener">itch.io</a>
+      <a href="mailto:peterlogarn294@gmail.com">Contact</a>
+    </nav>
+    <p class="small">© 2026 Peter Logarn. The type is <a href="fonts/OFL.txt">Pixelify Sans</a>. Names such as Amiga, Wear OS, Google Play and D&amp;D belong to their owners.</p>
+  </div>
+</footer>
+
+<div class="deck" hidden>
+  <button type="button" data-skip="-1" aria-label="Previous track">
+    <svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h2v10H2zM14 3v10h-1v-1h-2v-1H9v-1H7V9H5V7h2V6h2V5h2V4h2V3z"/></svg>
+  </button>
+  <a class="deck-now" href="#tracklist">
+    <span class="deck-reels" aria-hidden="true"><i></i><i></i></span>
+    <span class="deck-n px">B1</span>
+    <span class="deck-title">The Last Herald</span>
+  </a>
+  <span class="deck-count px" aria-hidden="true">000</span>
+  <button type="button" data-skip="1" aria-label="Next track">
+    <svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3h2v10h-2zM2 3v10h1v-1h2v-1h2v-1h2V9h2V7H9V6H7V5H5V4H3V3z"/></svg>
+  </button>
+</div>
+
+<script src="js/site.js"></script>
+</body>
+</html>
