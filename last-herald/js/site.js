@@ -1,25 +1,7 @@
 // The Last Herald: the website.
 
-// Where the game is. Fill in each address when it's out there, and its button
-// on the page goes live ("Get it on Google Play"); while it's empty, the button
-// says "Coming soon".
-const STORES = {
-  play: 'https://play.google.com/store/apps/details?id=io.github.logge.lastherald', // Google Play
-  itch: 'https://plogarn.itch.io/the-last-herald', // itch.io, in the browser
-  apple: '', // the App Store, for iPhone and iPad
-  amiga: 'https://github.com/logge/last-herald/releases/download/amiga-1.0/TheLastHerald-Amiga-1.0.zip', // the Amiga 1200: the release on GitHub (the last-herald repository's releases)
-};
-const LIVE = { play: 'Get it on', itch: 'Play it on', apple: 'Download on the', amiga: 'Download for' };
-
-for (const a of document.querySelectorAll('[data-store]')) {
-  const url = STORES[a.dataset.store];
-  if (!url) continue;
-  a.href = url;
-  a.rel = 'noopener';
-  a.removeAttribute('aria-disabled');
-  a.classList.replace('soon', 'live');
-  a.querySelector('small').textContent = LIVE[a.dataset.store];
-}
+// The stores' buttons are plain links in index.html, so that they work in a browser that runs no scripts
+// (an Amiga's own, for one).
 
 // The game itself, played on the page: itch.io's player, which loads it from itch.io. Nothing comes from itch.io (or
 // any other site) until the button is pressed: until then it's only a picture and a button
