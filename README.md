@@ -76,7 +76,7 @@ The Last Herald's footer and the two privacy policies link to the form too, inst
 
 ## Two sites in folders
 
-`last-herald/` and `threadmix/` are the websites of those two projects, copied from their own repositories (`logge/last-herald` and `logge/threadmix`) so that everything is under one domain: `sideblabs.com/last-herald/` and `sideblabs.com/threadmix/`. Each has a README of its own with how it works. What was changed in the copies: the addresses for link previews (`og:image`, `og:url`) and a `canonical` link, which name sideblabs.com, and a link back to Side B Labs in each footer.
+`last-herald/` and `threadmix/` are the websites of those two projects, copied from their own repositories (`logge/last-herald` and `logge/threadmix`) so that everything is under one domain: `sideblabs.com/last-herald/` and `sideblabs.com/threadmix/`. Each has a README of its own with how it works. What was changed in the copies: the addresses for link previews (`og:image`, `og:url`) and a `canonical` link, which name sideblabs.com, and the way back to Side B Labs: a link at the top of every page (over the corner of The Last Herald's title picture and in its privacy pages' bar; first in ThreadMix's bar) and one in each footer.
 
 The two old repositories are still there and still published, because things point at them:
 
