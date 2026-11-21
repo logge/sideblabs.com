@@ -27,7 +27,7 @@ const STORES = {
 
 ## On the Amiga
 
-The Amiga 1200 version (from the game's port, its `release.sh`) is a release of this repository on GitHub, `amiga-1.0`, its zip there: the game's drawer and icons, the configurations for WinUAE and FS-UAE, and a ReadMe. The "Amiga 1200" buttons (at the top, and in the "On the Amiga" section) download it; a new version is a new release, its address in `js/site.js`. The section's picture, `assets/amiga/square.png`, is the Amiga's own display (320 x 256, from its demo film), shown large, its pixels sharp; it and the YouTube button link to the demo film (https://www.youtube.com/watch?v=VHJVSludNbY). Both are links: nothing loads from GitHub or YouTube until they're followed.
+The Amiga 1200 version (from the game's port, its `release.sh`) is a release of this repository on GitHub, `amiga-1.0`, its zip there: the game's drawer and icons, the configurations for WinUAE and FS-UAE, and a ReadMe. The "Amiga 1200" buttons (at the top, and in the "On the Amiga" section) download it; a new version is a new release, its address in `js/site.js`. The section's picture, `assets/amiga/square.png`, is the Amiga's own display (320 x 256, from its demo film), shown large, its pixels sharp; it and the film button link to the demo film (https://www.youtube.com/watch?v=VHJVSludNbY). In this copy, on sideblabs.com, a plain click plays the film in a window on the page (the links' `data-film`, and the end of `js/site.js`), from YouTube's youtube-nocookie.com player. Both are links: nothing loads from GitHub or YouTube until they're pressed.
 
 ## Playing it here
 

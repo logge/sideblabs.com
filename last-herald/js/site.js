@@ -56,3 +56,40 @@ if (box && shots.length) {
     if (e.key === 'ArrowLeft') show(at - 1);
   });
 }
+
+// The film: a link with data-film is a link to it on YouTube, and still works as one (with Ctrl or a middle click, it
+// opens there). A plain click plays it here instead, in a window on the page. Nothing is loaded from YouTube until then
+let filmBox = null;
+const buildFilmBox = () => {
+  const d = document.createElement('dialog');
+  d.className = 'filmbox';
+  d.setAttribute('aria-label', 'Film');
+  d.innerHTML = '<div class="frame"></div><div class="bar"><span class="caption"></span><span>' +
+    '<a rel="noopener" target="_blank">Open on YouTube</a> <button type="button" aria-label="Close">✕</button></span></div>';
+  d.addEventListener('click', (e) => { if (e.target === d || e.target.closest('button')) d.close(); });
+  d.addEventListener('close', () => d.querySelector('.frame').replaceChildren()); // and the film stops
+  document.body.append(d);
+  return d;
+};
+if (typeof HTMLDialogElement === 'function') {
+  document.addEventListener('click', (e) => {
+    if (e.defaultPrevented || e.button !== 0 || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
+    const link = e.target.closest?.('a[data-film]');
+    const id = link && new URL(link.href).searchParams.get('v');
+    if (!id) return;
+    e.preventDefault();
+    filmBox ??= buildFilmBox();
+    filmBox.querySelector('.caption').textContent = link.dataset.film;
+    filmBox.querySelector('a').href = link.href;
+    const frame = document.createElement('iframe');
+    Object.assign(frame, {
+      src: `https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}?autoplay=1&rel=0`,
+      title: link.dataset.film,
+      allow: 'autoplay; encrypted-media; picture-in-picture; fullscreen',
+      allowFullscreen: true,
+      referrerPolicy: 'strict-origin-when-cross-origin', // YouTube won't play without knowing the site
+    });
+    filmBox.querySelector('.frame').replaceChildren(frame);
+    filmBox.showModal();
+  });
+}
