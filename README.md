@@ -64,7 +64,7 @@ Where the pictures come from:
 
 Any link on the hub to a film on YouTube (`https://www.youtube.com/watch?v=...`) plays in a window on the page instead of leaving it: nothing else is needed than the link. A picture that is such a link (the Amiga's) gets a play button drawn over it. With Ctrl or a middle click the link opens on YouTube as usual.
 
-The sites in folders do the same for a film link that has a `data-film` attribute (its title, shown under the film): Robin & Coco's two films, and the Amiga film on The Last Herald's page. ThreadMix's page has no film on it.
+The sites in folders do the same for a film link that has a `data-film` attribute (its title, shown under the film): Robin & Coco's two films, and the Amiga film on The Last Herald's page. ThreadMix's video is the picture at the top of its page, with a play button on it.
 
 ## The contact form
 

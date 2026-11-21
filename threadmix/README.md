@@ -1,6 +1,6 @@
 # ThreadMix Auto DJ
 
-> **This is the copy of the website in the [sideblabs.com](https://github.com/logge/sideblabs.com) repository, published at https://sideblabs.com/threadmix/.** It was copied from the `threadmix` repository, which is still published at https://logge.github.io/threadmix and still holds the installers (its Releases): the download buttons point there. Change the site here, and there too for as long as both are up.
+> **This is the copy of the website in the [sideblabs.com](https://github.com/logge/sideblabs.com) repository, published at https://sideblabs.com/threadmix/.** It was copied from the `threadmix` repository, which is still published at https://logge.github.io/threadmix and still holds the installers (its Releases): the download buttons point there. Change the site here, and there too for as long as both are up. This copy also has the video (https://www.youtube.com/watch?v=RaKkexU7fUg): the picture at the top is its play button, and it plays in a window on the page (the link's `data-film`, and the end of the page's script).
 
 A DJ that runs itself. Point it at your music and it plays one continuous,
 beatmatched mix.
