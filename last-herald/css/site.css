@@ -144,7 +144,14 @@ figcaption { color: var(--dim); font-size: 14px; margin-top: 10px; }
   height: 286px; display: flex; align-items: flex-end; justify-content: center; margin-bottom: 18px;
   background: radial-gradient(ellipse 70px 10px at 50% calc(100% - 4px), rgba(0, 0, 0, 0.55), transparent 70%);
 }
-.kid .stage img { height: 276px; width: auto; } /* each picture is 46 pixels of the game tall (Danny, with his boombox over his head; the others have air over theirs): six times, so every one of its pixels is as wide as the next */
+/* Each kid is a strip of 48 frames, side by side, at the game's own size: six seconds of them standing there as the game plays it (a frame is --wide by --tall of the game's pixels). Shown six times that size, so every pixel is as wide as the next */
+.kid .sprite {
+  --k: 6px;
+  width: calc(var(--wide) * var(--k)); height: calc(var(--tall) * var(--k));
+  background-repeat: no-repeat; background-size: calc(var(--wide) * var(--k) * 48) 100%;
+  animation: kid 6s steps(48) infinite;
+}
+@keyframes kid { to { background-position-x: calc(var(--wide) * var(--k) * -48); } }
 .kid h3 { color: var(--gold-2); }
 .kid .age { font-family: var(--pixel); color: var(--teal); font-size: 15px; margin-bottom: 10px; }
 .kid p { color: var(--muted); margin: 0; font-size: 16px; }
@@ -208,8 +215,8 @@ footer a { color: var(--muted); }
   .hero > .hub { position: static; display: flex; padding: 9px 16px; border: 0; border-bottom: 1px solid var(--line); background: var(--bg-2); } /* a narrow picture has no free corner: a strip above it */
   .story { grid-template-columns: 1fr; }
   .kids, .features { grid-template-columns: 1fr; }
-  .kid .stage { height: auto; padding-top: 6px; }
-  .kid .stage img { width: calc(var(--wide) * 5px); height: calc(var(--tall) * 5px); object-fit: cover; object-position: bottom; } /* one under the other, five times, and each only as tall as the kid is (--wide and --tall, in the game's pixels): no air over their heads */
+  .kid .stage { height: auto; padding-top: 6px; } /* one under the other: each only as tall as the kid is */
+  .kid .sprite { --k: 5px; }
   .gallery { grid-template-columns: 1fr; }
 }
 @media (max-width: 520px) {
@@ -220,4 +227,5 @@ footer a { color: var(--muted); }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .btn, .gallery button { transition: none; }
+  .kid .sprite { animation: none; background-position-x: calc(var(--wide) * var(--k) * -1 * var(--still)); } /* standing still, in the frame --still: the one that shows what they do */
 }
