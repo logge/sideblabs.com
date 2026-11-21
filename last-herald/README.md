@@ -29,6 +29,10 @@ const STORES = {
 
 The Amiga 1200 version (from the game's port, its `release.sh`) is a release of this repository on GitHub, `amiga-1.0`, its zip there: the game's drawer and icons, the configurations for WinUAE and FS-UAE, and a ReadMe. The "Amiga 1200" buttons (at the top, and in the "On the Amiga" section) download it; a new version is a new release, its address in `js/site.js`. The section's picture, `assets/amiga/square.png`, is the Amiga's own display (320 x 256, from its demo film), shown large, its pixels sharp; it and the film button link to the demo film (https://www.youtube.com/watch?v=VHJVSludNbY). In this copy, on sideblabs.com, a plain click plays the film in a window on the page (the links' `data-film`, and the end of `js/site.js`), from YouTube's youtube-nocookie.com player. Both are links: nothing loads from GitHub or YouTube until they're pressed.
 
+## The trailer
+
+In this copy, on sideblabs.com, the trailer (https://www.youtube.com/watch?v=PE8nIEQJ5BU) is on the page twice: "Watch the trailer" under the stores' buttons at the top, and the picture of the square beside the story, with a play button on it. Both are links to it on YouTube with `data-film`, so a plain click plays it in a window on the page (the end of `js/site.js`).
+
 ## Playing it here
 
 Under the story, the game can be played on the page, in itch.io's player for the browser build: `data-src` on the `.player` in `index.html`, `https://itch.io/embed-upload/20450633`. That number is the upload's on itch.io, so it changes if the zip there is deleted and a new one uploaded: then put the new one in (it's in the address of the game's frame on the itch.io page, `html-classic.itch.zone/html/<number>/`). Pushing new builds with itch.io's `butler` keeps the same upload, and the same number.

@@ -98,6 +98,11 @@ section + section { border-top: 1px solid var(--line); }
 .hero { background: linear-gradient(to bottom, #04050b 60%, var(--bg)); }
 .hero-text h1 { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); } /* the logo says it */
 .tagline { font-family: var(--pixel); font-weight: 400; font-size: clamp(20px, 2.8vw, 28px); line-height: 1.35; margin: 0 auto 26px; max-width: 30ch; color: var(--ink); }
+/* the trailer, under the stores: a link that plays it in a window on the page */
+.trailer { margin: 20px 0 0; }
+.trailer a { display: inline-flex; align-items: center; gap: 8px; font: 600 19px/1.2 var(--pixel); letter-spacing: 0.03em; color: var(--gold-2); text-decoration: none; padding: 4px 2px; border-bottom: 2px solid var(--gold); }
+.trailer a:hover { color: #fff; border-color: #fff; }
+.trailer svg { width: 20px; height: 20px; color: var(--teal); }
 .facts { color: var(--muted); font-size: 15px; margin: 18px 0 0; }
 .facts span + span::before { content: '·'; margin: 0 10px; color: var(--dim); }
 
@@ -135,17 +140,19 @@ figcaption { color: var(--dim); font-size: 14px; margin-top: 10px; }
 .player button svg { color: var(--teal); }
 .player iframe { width: 100%; height: 100%; border: 0; display: block; }
 
-/* ---- On the Amiga: the story's layout, its buttons left, the Amiga's own picture (320 x 256, sharp) linking to the video ---- */
-.amiga .stores { justify-content: flex-start; margin-top: 26px; }
-.amiga .video { position: relative; display: block; }
-.amiga .video img { width: 100%; }
-.amiga .video .play {
+/* ---- A picture that plays a film (the square, for the trailer; the Amiga's own picture, for its film): a play button over its middle ---- */
+a.video { position: relative; display: block; }
+a.video img { width: 100%; }
+a.video .play {
   position: absolute; left: 50%; top: 50%; width: 76px; height: 76px; transform: translate(-50%, -50%);
   display: grid; place-items: center; color: var(--ink); background: rgba(10, 12, 25, 0.78); border: 2px solid var(--gold);
   box-shadow: 4px 4px 0 #04050b; transition: transform 0.12s, background 0.12s;
 }
-.amiga .video .play svg { width: 40px; height: 40px; }
-.amiga .video:hover .play { transform: translate(calc(-50% - 2px), calc(-50% - 2px)); background: var(--panel); }
+a.video .play svg { width: 40px; height: 40px; }
+a.video:hover .play { transform: translate(calc(-50% - 2px), calc(-50% - 2px)); background: var(--panel); }
+
+/* ---- On the Amiga: the story's layout, its buttons left, the Amiga's own picture (320 x 256, sharp) ---- */
+.amiga .stores { justify-content: flex-start; margin-top: 26px; }
 .play .note { color: var(--muted); font-size: 15px; margin: 16px 0 0; max-width: 70ch; }
 
 /* ---- The kids ---- */
