@@ -144,7 +144,7 @@ figcaption { color: var(--dim); font-size: 14px; margin-top: 10px; }
   height: 210px; display: flex; align-items: flex-end; justify-content: center; margin-bottom: 18px;
   background: radial-gradient(ellipse 70px 10px at 50% calc(100% - 4px), rgba(0, 0, 0, 0.55), transparent 70%);
 }
-.kid .stage img { height: auto; width: auto; max-height: 100%; }
+.kid .stage img { height: 198px; width: auto; } /* 33 pixels of the game tall: six times, so every one of its pixels is as wide as the next */
 .kid h3 { color: var(--gold-2); }
 .kid .age { font-family: var(--pixel); color: var(--teal); font-size: 15px; margin-bottom: 10px; }
 .kid p { color: var(--muted); margin: 0; font-size: 16px; }
@@ -209,6 +209,7 @@ footer a { color: var(--muted); }
   .story { grid-template-columns: 1fr; }
   .kids, .features { grid-template-columns: 1fr; }
   .kid .stage { height: 170px; }
+  .kid .stage img { height: 165px; } /* five times */
   .gallery { grid-template-columns: 1fr; }
 }
 @media (max-width: 520px) {

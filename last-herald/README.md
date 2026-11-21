@@ -35,4 +35,4 @@ Under the story, the game can be played on the page, in itch.io's player for the
 
 ## The pictures
 
-The screenshots, the icon and the feature graphic are the store pictures from the game's repository (`store/`), and the kids in `assets/kids/` are drawn by the game's own character rig, eight times their size.
+The screenshots, the icon and the feature graphic are the store pictures from the game's repository (`store/`), and the kids in `assets/kids/` are drawn by the game's own character rig (`rigFrame` in its `src/art/rig.ts`, each kid standing, in the side view, facing right), cut to their edges, eight times their size (Benjamin's picture is as tall as the others', with air over his head, so that he stays the smallest on the page). In this copy, on sideblabs.com, they're from the side; the original site has them from the front.
