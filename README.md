@@ -13,6 +13,7 @@ It's plain HTML, CSS and a little JavaScript, served as it is by GitHub Pages fr
 - `404.html`: the page for an address that isn't there.
 - `last-herald/`: The Last Herald's website, with its privacy policy (`last-herald/privacy/`) and the watch faces' (`last-herald/watchfaces/privacy/`). See [Two sites in folders](#two-sites-in-folders).
 - `threadmix/`: ThreadMix Auto DJ's website.
+- `robin-coco/`: Robin & Coco's website, with its privacy policy (`robin-coco/privacy/`). See [Robin & Coco](#robin--coco).
 - `tools/make_images.py`: draws the icons and the link-preview picture (`assets/og.png`). Run it again if the look changes: `python tools/make_images.py` (it needs Pillow).
 
 ## To see it on your own computer
@@ -83,6 +84,21 @@ The two old repositories are still there and still published, because things poi
 - ThreadMix's installers are the `threadmix` repository's releases, and the Amiga version of The Last Herald is a release of the `last-herald` repository. The download buttons point there, and that doesn't need to change.
 
 For as long as both copies of a site are up, a change to one has to be made in the other too. Once the domain is up, the old ones could be replaced by a page that sends visitors on to the new address.
+
+## Robin & Coco
+
+`robin-coco/` is Robin & Coco's own small site, **https://sideblabs.com/robin-coco/**, made here (it has no repository of its own). It looks like the app: its sunset bands, its sand, the cream and ink of Robin's speech bubbles, and its own pixel font (`robin-coco/fonts/roomie_pixel.ttf`, from the watch face's `roomie/src/main/res/font`). The page runs through a day on the island: blue sky at the top, the sand, dusk in bands, and night at the foot.
+
+- `index.html`: the page. The bar at the top, on every page, has the way back to Side B Labs; the foot has it again.
+- `privacy/`: its privacy policy, **https://sideblabs.com/robin-coco/privacy/**. It's the watch faces' policy (`watchfaces/store/privacy-policy.md`) told for Robin & Coco alone: the same facts, with nothing of Sunward or Walkies. It gives no email address: its Contact links to the hub's form. If the app's policy changes, change both.
+- `css/site.css`: the look. The island at the top is laid out in pixels of the art (`--u`, three screen pixels to one on a wide screen, two on a narrow one), so every sprite is drawn sharp.
+- `js/site.js`: the sky of the visitor's own hour over the island (day, dusk from 17, night from 21 to 6), what Robin says, poking her (her six snaps, from the watch face's `tools/roomie/robin.py`), and the window the films play in (a link with `data-film`).
+- `assets/sprites/`: the app's own art, from the watch face's `tools/roomie/pixellab`, each cut to its edges: the island's things, and Robin standing, shaking her fist and dancing, each a strip of frames with her feet on its bottom edge (`robin-idle.png` 4 frames of 96, `robin-huff.png` and `robin-dance.png` 9 of 132).
+- `assets/watch/` and `assets/phone/`: the Play screenshots (`watchfaces/store/roomie`), the watch's at half their size. `assets/film.png` is the promo film's thumbnail, `assets/og.png` the Play feature graphic.
+
+**When it's out on Google Play:** in `index.html`, under "Get Robin & Coco", there's a comment with the link to put in place of "Coming soon to Google Play". On the hub, change the track's status to `<span class="status live">Released</span>`.
+
+Google Play has the watch faces' privacy policy as `https://logge.github.io/last-herald/watchfaces/privacy/` (the copy here is at `/last-herald/watchfaces/privacy/`). Robin & Coco's listing can be given `https://sideblabs.com/robin-coco/privacy/` instead.
 
 ## Publishing
 
