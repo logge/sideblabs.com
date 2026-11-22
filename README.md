@@ -36,7 +36,7 @@ A track in `index.html` has:
 
 The first five are full width. The ones in `<div class="b-grid">` are the smaller ones, two to a row; add `small` to the track's classes there.
 
-To add a project: copy a track, give it the next number, and change the "nine tracks" in the hero, the "9 tracks" under Tracklist and on the cassette's label (`independent software · 9 tracks`, in the `<svg>` in `index.html` and in `tools/make_images.py`).
+To add a project: copy a track, give it the next number, and change the "Nine projects" in the hero, the "9 tracks" under Tracklist and on the cassette's label (`independent software · 9 tracks`, in the `<svg>` in `index.html` and in `tools/make_images.py`).
 
 **When something comes out:** Robin & Coco and Ensemble Reader say "Coming to Google Play", and have no links yet. When they're live, change the status to `<span class="status live">Released</span>` and add, after the tags:
 
