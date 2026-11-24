@@ -83,7 +83,7 @@ The Last Herald's footer and the two privacy policies link to the form too, inst
 The two old repositories are still there and still published, because things point at them:
 
 - Google Play has The Last Herald's privacy policy as `https://logge.github.io/last-herald/privacy/`, and the watch faces' as `https://logge.github.io/last-herald/watchfaces/privacy/`. The same pages are now at `https://sideblabs.com/last-herald/privacy/` and `https://sideblabs.com/last-herald/watchfaces/privacy/`; once the domain is up, the Play Console can be given those instead.
-- ThreadMix's installers are the `threadmix` repository's releases, and the Amiga version of The Last Herald is a release of the `last-herald` repository. The download buttons point there, and that doesn't need to change.
+- ThreadMix's installers are the `threadmix` repository's releases. The download buttons point there, and that doesn't need to change. (The Amiga version of The Last Herald is a release of this repository.)
 
 For as long as both copies of a site are up, a change to one has to be made in the other too. Once the domain is up, the old ones could be replaced by a page that sends visitors on to the new address.
 

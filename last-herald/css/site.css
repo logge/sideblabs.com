@@ -153,7 +153,8 @@ a.video:hover .play { transform: translate(calc(-50% - 2px), calc(-50% - 2px)); 
 
 /* ---- On the Amiga: the story's layout, its buttons left, the Amiga's own picture (320 x 256, sharp) ---- */
 .amiga .stores { justify-content: flex-start; margin-top: 26px; }
-.play .note { color: var(--muted); font-size: 15px; margin: 16px 0 0; max-width: 70ch; }
+.play .note, .amiga .note { color: var(--muted); font-size: 15px; margin: 16px 0 0; max-width: 70ch; }
+.amiga .note { margin-top: 22px; }
 
 /* ---- The kids ---- */
 .kids { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 30px; }
