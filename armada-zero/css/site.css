@@ -1,0 +1,232 @@
+/* Armada Zero: Firestorm. The colours and the type are the game's own. */
+
+@font-face {
+  font-family: 'Armada Pixel';
+  src: url('../fonts/armada-pixel.ttf') format('truetype');
+  font-display: swap;
+}
+
+:root {
+  --bg: #0b0f18;
+  --panel: #131b28;
+  --panel-2: #1a2434;
+  --edge: #2b3442;
+  --edge-hi: #3a4556;
+  --ink: #c8d4e6;
+  --dim: #8492a8;
+  --accent: #3ee6ff;
+  --core: #8fe9ff;
+  --amber: #ffb13b;
+  --gold: #ffcf5a;
+  --good: #8cff5a;
+  --bad: #ff4d6a;
+  --outline: #05080e;
+  --pixel: 'Armada Pixel', ui-monospace, 'Cascadia Mono', Consolas, monospace;
+  --text: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font: 17px/1.65 var(--text); -webkit-text-size-adjust: 100%;
+}
+img { max-width: 100%; height: auto; }
+a { color: var(--accent); }
+a:hover { color: #fff; }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.pixel { image-rendering: pixelated; }
+.wrap { width: min(1120px, 100% - 32px); margin-inline: auto; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* The game's type: 5x7 pixels in a cell of 8, so every size is a multiple of 8px. */
+.px, h1, h2, h3, .btn, .bar a, .chip { font-family: var(--pixel); font-weight: 400; letter-spacing: 0; -webkit-font-smoothing: none; }
+.px { font-size: 16px; line-height: 24px; }
+
+/* ---- The bar at the top ---- */
+.bar {
+  position: relative; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 14px 16px; background: rgba(11, 15, 24, 0.86); border-bottom: 2px solid var(--edge);
+}
+.bar a { font-size: 16px; line-height: 24px; text-decoration: none; color: var(--ink); white-space: nowrap; }
+.bar a:hover { color: var(--accent); }
+.bar a + a { overflow: hidden; text-overflow: ellipsis; color: var(--dim); }
+.chip { white-space: nowrap; display: inline-flex; align-items: center; gap: 8px; font-size: 16px; line-height: 24px; color: var(--amber); }
+.chip::before { content: ''; width: 8px; height: 8px; background: currentColor; animation: blink 1.6s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0.25; } }
+
+/* ---- The hero: the hangar ---- */
+.hero {
+  position: relative; overflow: hidden; padding: 56px 0 72px;
+  background: var(--bg) url('../assets/space.png') 0 0 / 1280px 720px repeat;
+  image-rendering: pixelated; animation: drift 140s linear infinite;
+}
+@keyframes drift { to { background-position: -1280px 0; } }
+.hero::after { content: ''; position: absolute; inset: auto 0 0; height: 120px; background: linear-gradient(to bottom, transparent, var(--bg)); pointer-events: none; }
+.hero > * { position: relative; z-index: 1; image-rendering: auto; }
+
+.logo { margin: 0 auto; width: min(794px, 100%); text-align: center; line-height: 0; }
+.logo .title, .logo .sub { position: relative; display: block; margin: 0 auto; }
+.logo img { display: block; width: 100%; height: auto; }
+.logo .sub { width: 47.6%; margin-top: 2.2%; }
+/* The glint that sweeps across the letters, as in the game. */
+.logo .title::after, .logo .sub::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(110deg, transparent 46%, rgba(255, 255, 255, 0.75) 50%, transparent 54%) 130% 0 / 300% 100% no-repeat;
+  -webkit-mask: var(--mask) center / 100% 100% no-repeat; mask: var(--mask) center / 100% 100% no-repeat;
+  animation: glint 4s linear infinite;
+}
+.logo .title::after { --mask: url('../assets/logo-title-mask.svg'); }
+.logo .sub::after { --mask: url('../assets/logo-sub-mask.svg'); animation-delay: 0.5s; }
+@keyframes glint { 0% { background-position: 130% 0; } 45%, 100% { background-position: -30% 0; } }
+.tagline { margin: 22px 0 0; text-align: center; color: var(--dim); font-size: 16px; line-height: 24px; }
+.tagline::after { content: ''; display: block; width: min(480px, 70%); height: 2px; margin: 12px auto 0; background: var(--edge-hi); }
+
+.hangar { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 32px; align-items: start; margin-top: 44px; }
+
+/* A panel, as the game draws them: a bright top edge and two amber corners. */
+.panel {
+  position: relative; background: var(--panel); border: 2px solid var(--edge); border-top-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--outline), 0 18px 40px rgba(0, 0, 0, 0.45);
+}
+.panel::before, .panel::after { content: ''; position: absolute; bottom: 4px; width: 8px; height: 8px; border-bottom: 2px solid var(--amber); pointer-events: none; }
+.panel::before { left: 4px; border-left: 2px solid var(--amber); }
+.panel::after { right: 4px; border-right: 2px solid var(--amber); }
+
+.pilot-panel { display: grid; grid-template-columns: auto 1fr; gap: 0 20px; padding: 14px 16px 12px; }
+.portrait {
+  --size: 256px; width: var(--size); height: var(--size); background-repeat: no-repeat; background-size: calc(var(--size) * 4) var(--size);
+  image-rendering: pixelated; border: 2px solid var(--tone, var(--edge-hi)); background-color: #0d131e;
+  animation: idle 5.2s step-end infinite;
+}
+@keyframes idle {
+  0% { background-position-x: 0; }
+  52% { background-position-x: calc(var(--size) * -1); }
+  70% { background-position-x: calc(var(--size) * -2); }
+  74% { background-position-x: calc(var(--size) * -3); }
+  100% { background-position-x: 0; }
+}
+.pilot-panel .ship { display: flex; flex-direction: column; min-width: 0; }
+.pilot-panel .ship .px { color: var(--accent); font-size: 24px; line-height: 32px; }
+.pilot-panel .ship img { width: 128px; height: 96px; margin: auto; animation: bob 2.4s steps(1) infinite; }
+@keyframes bob { 50% { transform: translateY(4px); } }
+.pilot-panel .ship .level { color: var(--ink); font-size: 16px; line-height: 24px; }
+.pilot-panel .who { grid-column: 1 / -1; margin: 10px 0 0; color: var(--core); font-size: 24px; line-height: 32px; }
+
+.brief p { margin: 0 0 16px; }
+.brief .lede { font-size: 20px; line-height: 1.55; color: #e6eefb; }
+.wallet { list-style: none; margin: 4px 0 20px; padding: 0; font-family: var(--pixel); font-size: 16px; line-height: 28px; }
+.wallet li { display: flex; align-items: center; gap: 10px; }
+.wallet li::before { content: ''; flex: none; width: 10px; height: 10px; background: currentColor; transform: rotate(45deg); }
+.wallet .cores { color: var(--core); }
+.wallet .relics { color: var(--amber); }
+.wallet .relics::before { transform: none; border-radius: 50%; }
+
+.menu { display: grid; gap: 8px; }
+.btn {
+  display: block; padding: 8px 14px; text-align: center; text-decoration: none; font-size: 24px; line-height: 32px;
+  color: var(--ink); background: var(--panel-2); border: 2px solid var(--edge-hi); border-radius: 6px;
+  box-shadow: 0 0 0 2px var(--outline);
+}
+.btn:hover, .btn:focus-visible, .btn.first { color: var(--accent); border-color: var(--accent); }
+.btn:hover { background: #17283a; color: #fff; }
+
+/* ---- Sections ---- */
+section { padding: 64px 0; }
+.stripe { background: linear-gradient(to bottom, #0e1420, var(--bg)); border-top: 2px solid var(--edge); }
+.eyebrow { margin: 0 0 6px; color: var(--amber); font-size: 16px; line-height: 24px; }
+h2 { margin: 0 0 14px; font-size: 32px; line-height: 40px; color: #eaf6ff; text-shadow: 3px 3px 0 var(--outline); }
+h3 { margin: 0 0 8px; font-size: 16px; line-height: 24px; color: var(--accent); }
+.intro { max-width: 62ch; margin: 0 0 28px; color: var(--ink); }
+
+/* How it plays: the cards of a draft. */
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.card { padding: 18px 18px 20px; }
+.card p { margin: 0; color: var(--ink); font-size: 16px; }
+.card .n { float: right; color: var(--dim); font-size: 16px; line-height: 24px; }
+
+/* The wing */
+.wing { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.pilot { padding: 16px; border-top-color: var(--tone); text-align: left; }
+.pilot .portrait { --size: 256px; margin: 0 auto 12px; }
+.pilot h3 { color: var(--tone); font-size: 24px; line-height: 32px; margin: 0; }
+.pilot .role { margin: 0 0 6px; color: var(--dim); font-size: 16px; line-height: 24px; }
+.pilot p { margin: 0; font-size: 16px; }
+.pilot.vega { --tone: #9fdcff; }
+.pilot.brick { --tone: #d6b37a; }
+.pilot.wren { --tone: #6fe08a; }
+.pilot.brick .portrait { animation-delay: -1.7s; }
+.pilot.wren .portrait { animation-delay: -3.1s; }
+.after { margin: 22px 0 0; color: var(--dim); }
+
+/* Screenshots */
+.shots { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; align-items: start; }
+.shots figure { margin: 0; grid-column: span 3; }
+.shots .wide { grid-column: 1 / span 4; grid-row: span 2; }
+.shots .side { grid-column: span 2; }
+.shots a { display: block; line-height: 0; border: 2px solid var(--edge); box-shadow: 0 0 0 2px var(--outline); }
+.shots a:hover, .shots a:focus-visible { border-color: var(--accent); }
+.shots img { display: block; width: 100%; }
+.shots figcaption { margin-top: 8px; color: var(--dim); font-family: var(--pixel); font-size: 16px; line-height: 24px; }
+
+/* Where it stands */
+.status { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.status .panel { padding: 18px 18px 20px; border-top-color: var(--tone); }
+.status h3 { color: var(--tone); }
+.status ul { list-style: none; margin: 0; padding: 0; font-size: 16px; }
+.status li { position: relative; padding-left: 20px; margin-top: 8px; }
+.status li::before { content: ''; position: absolute; left: 0; top: 9px; width: 8px; height: 8px; background: var(--tone); }
+.status .done { --tone: var(--good); }
+.status .now { --tone: var(--accent); }
+.status .later { --tone: var(--amber); }
+.status .later li::before { background: none; border: 2px solid var(--tone); }
+.closing { max-width: 62ch; margin: 28px 0 0; }
+
+/* ---- The foot ---- */
+footer { padding: 32px 0 44px; border-top: 2px solid var(--edge); color: var(--dim); }
+footer .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; }
+footer nav { display: flex; flex-wrap: wrap; gap: 8px 22px; }
+footer a { font-family: var(--pixel); font-size: 16px; line-height: 24px; text-decoration: none; color: var(--ink); }
+footer a:hover { color: var(--accent); }
+footer span { font-size: 15px; }
+
+/* ---- The privacy policy ---- */
+.policy { padding: 48px 0 72px; background: var(--bg) url('../assets/space.png') 0 0 / 1280px 720px repeat; image-rendering: pixelated; }
+.policy .doc { image-rendering: auto; width: min(760px, 100% - 32px); margin-inline: auto; padding: 28px clamp(18px, 4vw, 40px) 36px; }
+.doc h1 { margin: 0 0 4px; font-size: 32px; line-height: 40px; color: #eaf6ff; text-shadow: 3px 3px 0 var(--outline); }
+.doc .date { margin: 0 0 22px; color: var(--dim); font-family: var(--pixel); font-size: 16px; line-height: 24px; }
+.doc h2 { margin: 32px 0 8px; font-size: 16px; line-height: 24px; color: var(--accent); text-shadow: none; }
+.doc p, .doc li { font-size: 16.5px; }
+.doc p { margin: 0 0 14px; }
+.doc ul { margin: 0 0 14px; padding-left: 22px; }
+.doc .short { padding: 14px 16px; background: #0d1420; border: 2px solid var(--edge); border-left-color: var(--good); }
+.doc .draft { padding: 14px 16px; background: #1a160c; border: 2px solid #4a3a16; border-left-color: var(--amber); color: #f1dfb4; }
+.doc .btn { display: inline-block; margin-top: 18px; font-size: 16px; line-height: 24px; }
+
+/* ---- Narrower screens ---- */
+@media (max-width: 900px) {
+  .hangar { grid-template-columns: 1fr; }
+  .cards, .status { grid-template-columns: 1fr 1fr; }
+  .wing { grid-template-columns: 1fr; }
+  .pilot { display: grid; grid-template-columns: auto 1fr; gap: 0 16px; align-items: center; }
+  .pilot .portrait { --size: 128px; margin: 0; grid-row: 1 / span 3; }
+}
+@media (max-width: 620px) {
+  body { font-size: 16px; }
+  .hero { padding: 36px 0 56px; }
+  section { padding: 48px 0; }
+  h2, .doc h1 { font-size: 24px; line-height: 32px; text-shadow: 2px 2px 0 var(--outline); }
+  .cards, .status, .shots { grid-template-columns: 1fr; }
+  .shots figure, .shots .wide, .shots .side { grid-column: auto; grid-row: auto; }
+  .pilot-panel { gap: 0 12px; padding: 12px; }
+  .pilot-panel .portrait { --size: 128px; }
+  .pilot-panel .ship img { width: 96px; height: 72px; }
+  .pilot-panel .ship .px, .pilot-panel .who { font-size: 16px; line-height: 24px; }
+  .brief .lede { font-size: 18px; }
+  .bar .chip { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hero, .portrait, .pilot-panel .ship img, .chip::before { animation: none; }
+  .logo .title::after, .logo .sub::after { display: none; }
+}

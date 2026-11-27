@@ -14,6 +14,7 @@ It's plain HTML, CSS and a little JavaScript, served as it is by GitHub Pages fr
 - `last-herald/`: The Last Herald's website, with its privacy policy (`last-herald/privacy/`) and the watch faces' (`last-herald/watchfaces/privacy/`). See [Two sites in folders](#two-sites-in-folders).
 - `threadmix/`: ThreadMix Auto DJ's website.
 - `robin-coco/`: Robin & Coco's website, with its privacy policy (`robin-coco/privacy/`). See [Robin & Coco](#robin--coco).
+- `armada-zero/`: Armada Zero: Firestorm's website, with its privacy policy (`armada-zero/privacy/`). Plain HTML and CSS, no scripts. Its type, `armada-zero/fonts/armada-pixel.ttf`, is the game's own pixel font, built by `armada-zero/tools/make_font.py`.
 - `tools/make_images.py`: draws the icons and the link-preview picture (`assets/og.png`). Run it again if the look changes: `python tools/make_images.py` (it needs Pillow).
 
 ## To see it on your own computer
